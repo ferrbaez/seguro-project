@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/seguro-list" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ seguroId ? 'Editar Seguro' : 'Nuevo Seguro' }}</ion-title>
+
+    <ion-buttons slot="primary" (click)="incluirOEditarSeguro()">
+      <ion-button fill="solid">
+        Guardar
+        <ion-icon slot="end" name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="registroForm" class="form">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Id #</ion-label>
+        <ion-input formControlName="id" type="text" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="Nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="Apellido" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label >Fecha Nacimiento</ion-label>
+        <ion-input formControlName="FechaNacimiento" type="date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Bien Asegurado</ion-label>
+        <ion-input formControlName="BienAsegurado" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Monto Asegurado</ion-label>
+        <ion-input formControlName="MontoAsegurado" type="text"></ion-input>
+      </ion-item>
+
+
+    </ion-list>
+
+  </form>
+
+  <ion-button *ngIf="seguroId" fill="solid" (click)="eliminarSeguro(seguroId)">
+    Eliminar
+    <ion-icon slot="end" name="trash"></ion-icon>
+  </ion-button>
+</ion-content>
